@@ -61,7 +61,7 @@ class InstagramAPI:
     # rank_token          # Rank token
     # IGDataPath          # Data storage path
 
-    def __init__(self, username, password, debug=False, IGDataPath=None):
+    def __init__(self, username, password, debug=False, IGDataPath=None, proxy=None):
         m = hashlib.md5()
         m.update(username.encode('utf-8') + password.encode('utf-8'))
         self.device_id = self.generateDeviceId(m.hexdigest())
@@ -69,6 +69,7 @@ class InstagramAPI:
         self.isLoggedIn = False
         self.LastResponse = None
         self.s = requests.Session()
+        self.setProxy(proxy)
 
     def setUser(self, username, password):
         self.username = username
