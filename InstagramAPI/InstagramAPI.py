@@ -674,6 +674,9 @@ class InstagramAPI:
 
     def getStory(self, usernameId):
         return self.SendRequest('feed/user/' + str(usernameId) + '/reel_media/')
+    
+    def getHighlight(self, usernameId):
+        return self.SendRequest('highlights/' + str(usernameId) + '/highlights_tray/')
 
     def getUsernameInfo(self, usernameId):
         return self.SendRequest('users/' + str(usernameId) + '/info/')
