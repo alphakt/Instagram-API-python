@@ -714,7 +714,7 @@ class InstagramAPI:
         return self.getUserTags(self.username_id)
 
     def tagFeed(self, tag):
-        userFeed = self.SendRequest('feed/tag/' + str(tag) + '/?rank_token=' + str(self.rank_token) + '&ranked_content=true&')
+        userFeed = self.SendRequest('feed/tag/' + str(tag.encode('utf8')) + '/?rank_token=' + str(self.rank_token) + '&ranked_content=true&')
         return userFeed
 
     def getMediaLikers(self, mediaId):
