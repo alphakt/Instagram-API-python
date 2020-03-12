@@ -176,7 +176,7 @@ class InstagramAPI:
                 '_uuid': self.uuid,
                 '_csrftoken': self.token,
                 'image_compression': '{"lib_name":"jt","lib_version":"1.3.0","quality":"87"}',
-                'photo': ('pending_media_%s.jpg' % upload_id, open(photo, 'rb'), 'application/octet-stream', {'Content-Transfer-Encoding': 'binary'})}
+                'photo': ('pending_media_%s.jpg' % upload_id, urllib.request.urlopen(photo), 'application/octet-stream', {'Content-Transfer-Encoding': 'binary'})}
         if is_sidecar:
             data['is_sidecar'] = '1'
         m = MultipartEncoder(data, boundary=self.uuid)
